@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
+    <button th:onclick="|window.location.href='/weddingPackages'|">
+        Go To Wedding Packages
+    </button>
+    <form th:action="@{/process}" method="post">
+        <input type="number" th:value="${sourceText}" name="sourceText" />
+        <input type ="submit" />
+    </form>
 </body>
 </html>

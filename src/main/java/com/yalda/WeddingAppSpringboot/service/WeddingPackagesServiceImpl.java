@@ -16,7 +16,11 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
 
     @Autowired
     private WeddingPackagesRepository weddingPackagesRepository;
+
+    @Autowired
     private DrinkPackageRepository drinkPackageRepository;
+
+    @Autowired
     private AddOnRepository addOnRepository;
     //get
     @Override

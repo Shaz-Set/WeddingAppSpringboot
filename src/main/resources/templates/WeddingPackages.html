@@ -6,6 +6,17 @@
 </head>
 <body>
 <h1>Hi</h1>
+<div th:each="package : ${listWeddingPackages}">
+    <div th:text="${package.styles}"></div>
+</div>
+<form action="#" th:action="@{weddingPackages}" th:object="${weddingPackage}" method="POST">
+    <input type="text" th:field="*{hours}" placeholder="Enter Hours">
+    <input type="text" th:field="*{styles}" placeholder="Enter styles">
+    <input type="text" th:field="*{price}" placeholder="Enter price">
+
+    <button type="submit">Save </button>
+
+</form>
 
 </body>
 </html>
