@@ -1,0 +1,10 @@
+2021-08-19 11:56:43 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP COLUMN[*] IF EXISTS DETAILS"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP COLUMN IF EXISTS details [42001-200]
+2021-08-19 11:57:31 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP COLUMN[*] IF EXISTS DETAILS"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP COLUMN IF EXISTS details [42001-200]
+2021-08-19 12:01:52 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DRINKPACKAGES" not found; SQL statement:
+ALTER TABLE DRINKPACKAGES
+DROP COLUMN DETAILS [42102-200]
