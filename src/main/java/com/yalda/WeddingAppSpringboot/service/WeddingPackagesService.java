@@ -12,7 +12,7 @@ public interface WeddingPackagesService {
      List<DrinkPackage> getAllDrinkPackages();
      List<AddOn> getAllAddOns();
      //update
-     int updateWeddingPackage(WeddingPackage weddingPackage);
+     Long updateWeddingPackage(WeddingPackage weddingPackage);
      int updateDrinkPackage(DrinkPackage drinkPackage);
      int updateAddOn(AddOn addOn);
      //delete

@@ -19,11 +19,6 @@
     <button th:onclick="|window.location.href='/userPage'|">
         Go To User Page
     </button>
-    <form th:action="@{/process}" method="post">
-        <label>
-            <input type="number" th:value="${sourceText}" name="sourceText" />
-        </label>
-        <input type ="submit" />
-    </form>
+
 </body>
 </html>

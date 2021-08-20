@@ -42,7 +42,7 @@ class WeddingPackagesServiceImplTest {
         newPackage.setHours(8);
         newPackage.setStyles("Roving");
         newPackage.setPrice(160.0);
-        int correct = weddingPackagesService.updateWeddingPackage(newPackage);
+        Long correct = weddingPackagesService.updateWeddingPackage(newPackage);
         assertEquals(1,correct);
     }
     @Test
@@ -69,14 +69,12 @@ class WeddingPackagesServiceImplTest {
     @Test
     void deleteWeddingPackage() {
         WeddingPackage newPackage = new WeddingPackage();
-        newPackage.setId(15L);
         newPackage.setHours(8);
         newPackage.setStyles("Roving");
         newPackage.setPrice(160.0);
-        weddingPackagesService.updateWeddingPackage(newPackage);
-
-        //assertNull(weddingPackagesService.deleteWeddingPackage(newPackage.getId()));
-        //assertEquals(" Employee not found for id :: 15",weddingPackagesService.getWeddingPackageById(15L));
+        Long id = weddingPackagesService.updateWeddingPackage(newPackage);
+        weddingPackagesService.deleteWeddingPackage(id);
+        assertNull(weddingPackagesService.getWeddingPackageById(id));
     }
 
 

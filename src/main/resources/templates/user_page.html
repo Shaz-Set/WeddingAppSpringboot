@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>Wedding Packages</h1>
+<form th:action="@{/process}" method="post">
 <div >
     <div class="container my-2"></div>
 
@@ -31,8 +32,8 @@
     </table>
 </div>
 <label for="chooseWPackages">Choose a wedding package:</label>
-<select id="chooseWPackages" name="chooseWPackages" th:each="weddingPackage : ${listWeddingPackages}">
-    <option th:text="${weddingPackage.name}"> </option>
+<select id="chooseWPackages" name="chooseWPackages" >
+    <option th:each="weddingPackage : ${listWeddingPackages}" th:value="${weddingPackage.price}" th:text="${weddingPackage.name}"> </option>
 </select>
 
 <h1>Additional</h1>
@@ -56,8 +57,8 @@
     </table>
 </div>
 <label for="chooseAddOn">Choose an add-on:</label>
-<select id="chooseAddOn" name="chooseAddOn" th:each="AddOn : ${listAddOns}">
-    <option th:text="${addOn.name}"> </option>
+<select id="chooseAddOn" name="chooseAddOn">
+    <option  th:each="addOn : ${listAddOns}" th:value="${addOn.price}" th:text="${addOn.name}"> </option>
 </select>
 <h1>Drink Packages</h1>
 <div >
@@ -79,11 +80,15 @@
     </table>
 </div>
 <label for="chooseDPackages">Choose a drink package:</label>
-<select id="chooseDPackages" name="chooseDPackages" th:each="drinkPackage : ${listDrinkPackages}">
-    <option th:text="${drinkPackage.name}"> </option>
+<select id="chooseDPackages" name="chooseDPackages" >
+    <option th:each="drinkPackage : ${listDrinkPackages}" th:value="${drinkPackage.price}" th:text="${drinkPackage.name}"> </option>
 </select>
-<!--<label>Please enter the number of guests:
-    <input type="number" th:field="*{}" placeholder="Enter hours" class="form-control mb-4 col-4">
-</label>-->
+
+    <label>
+        <input type="number" th:value="${guestNumber}" name="guestNumber" />
+    </label>
+    <input type ="submit" />
+</form>
+<a th:href="@{/}"> Back to Home</a>
 </body>
 </html>

@@ -37,9 +37,9 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
 
     //update
     @Override
-    public int updateWeddingPackage(WeddingPackage weddingPackage) {
+    public Long updateWeddingPackage(WeddingPackage weddingPackage) {
         weddingPackagesRepository.save(weddingPackage);
-        return 1;
+        return weddingPackage.getId();
     }
     @Override
     public int updateDrinkPackage(DrinkPackage drinkPackage) {
@@ -70,13 +70,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
     @Override
     public WeddingPackage getWeddingPackageById(long id) {
         Optional< WeddingPackage > optional = weddingPackagesRepository.findById(id);
-        WeddingPackage wp = null;
-        if (optional.isPresent()) {
-            wp = optional.get();
-        }else {
-            throw new RuntimeException(" Wedding Package not found for id :: " + id);
-        }
-        return wp;
+        return optional.orElse(null);
     }
     @Override
     public DrinkPackage getDrinkPackageById(long id) {
