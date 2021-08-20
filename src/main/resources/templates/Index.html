@@ -10,6 +10,12 @@
     <button th:onclick="|window.location.href='/adminWeddingPackages'|">
         Go To Wedding Packages
     </button>
+    <button th:onclick="|window.location.href='/adminAddOns'|">
+        Go To Additional
+    </button>
+    <button th:onclick="|window.location.href='/adminDrinkPackages'|">
+        Go To Drink Packages
+    </button>
     <form th:action="@{/process}" method="post">
         <input type="number" th:value="${sourceText}" name="sourceText" />
         <input type ="submit" />

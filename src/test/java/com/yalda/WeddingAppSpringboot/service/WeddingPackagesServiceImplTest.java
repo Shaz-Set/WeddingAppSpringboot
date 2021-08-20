@@ -50,7 +50,7 @@ class WeddingPackagesServiceImplTest {
         DrinkPackage newPackage = new DrinkPackage();
         newPackage.setId(12L);
         newPackage.setName("Gold Package");
-        newPackage.setDetails("Gold wines and beers");
+        newPackage.setDetail("Gold wines and beers");
         newPackage.setPrice(50.0);
         int correct = weddingPackagesService.updateDrinkPackage(newPackage);
         assertEquals(1,correct);
@@ -60,7 +60,7 @@ class WeddingPackagesServiceImplTest {
         AddOn newAddon = new AddOn();
         newAddon.setId(12L);
         newAddon.setName("Photo Booth");
-        newAddon.setDetails("Photo Booth will be placed in the venue");
+        newAddon.setDetail("Photo Booth will be placed in the venue");
         newAddon.setPrice(500);
         int correct = weddingPackagesService.updateAddOn(newAddon);
         assertEquals(1,correct);
@@ -119,13 +119,13 @@ class WeddingPackagesServiceImplTest {
         DrinkPackage newDrinkPackage = new DrinkPackage();
         newDrinkPackage.setId(12L);
         newDrinkPackage.setName("Gold Package");
-        newDrinkPackage.setDetails("Gold wines and beers");
+        newDrinkPackage.setDetail("Gold wines and beers");
         newDrinkPackage.setPrice(50.0);
 
         AddOn newAddon = new AddOn();
         newAddon.setId(12L);
         newAddon.setName("Photo Booth");
-        newAddon.setDetails("Photo Booth will be placed in the venue");
+        newAddon.setDetail("Photo Booth will be placed in the venue");
         newAddon.setPrice(500);
 
         double totalPrice = weddingPackagesService.calculateTotalPrice(newWeddingPackage,newDrinkPackage,newAddon,100);

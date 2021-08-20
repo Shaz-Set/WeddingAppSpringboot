@@ -21,12 +21,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="package : ${listWeddingPackages}">
-            <td th:text="${package.hours}"></td>
-            <td th:text="${package.styles}"></td>
-            <td th:text="${package.price}"></td>
-            <td> <a th:href="@{/showFormForUpdate/{id}(id=${package.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteWeddingPackage/{id}(id=${package.id})}" class="btn btn-danger">Delete</a>
+        <tr th:each="weddingPackage : ${listWeddingPackages}">
+            <td th:text="${weddingPackage.hours}"></td>
+            <td th:text="${weddingPackage.styles}"></td>
+            <td th:text="${weddingPackage.price}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${weddingPackage.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteWeddingPackage/{id}(id=${weddingPackage.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>

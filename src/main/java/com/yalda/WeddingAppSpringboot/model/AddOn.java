@@ -25,7 +25,7 @@ public class AddOn {
         return name;
     }
 
-    public String getDetails() {
+    public String getDetail() {
         return detail;
     }
 
@@ -41,7 +41,7 @@ public class AddOn {
         this.name = name;
     }
 
-    public void setDetails(String details) {
-        this.detail = details;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }

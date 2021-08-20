@@ -12,7 +12,6 @@ public class DrinkPackage {
     String name;
     String detail;
 
-
     public Long getId() {
         return id;
     }
@@ -25,7 +24,7 @@ public class DrinkPackage {
         return name;
     }
 
-    public String getDetails() {
+    public String getDetail() {
         return detail;
     }
 
@@ -41,15 +40,7 @@ public class DrinkPackage {
         this.name = name;
     }
 
-    public void setDetails(String details) {
-        this.detail = details;
-    }
-
-    @Override
-    public String toString() {
-        return "Drink package number " + this.id + "\n" +
-                "Name: " + this.name + "\n" +
-                "Details: " + this.detail + "\n" +
-                "Price: $" + this.price + "\n";
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }
