@@ -44,12 +44,4 @@ public class AddOn {
     public void setDetails(String details) {
         this.detail = details;
     }
-
-    @Override
-    public String toString() {
-        return "Add On number " + this.id + "\n" +
-                "Name: " + this.name + "\n" +
-                "Details: " + this.detail + "\n" +
-                "Price: $" + this.price + "\n";
-    }
 }

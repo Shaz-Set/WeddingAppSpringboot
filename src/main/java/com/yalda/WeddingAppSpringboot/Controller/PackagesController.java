@@ -1,5 +1,6 @@
 package com.yalda.WeddingAppSpringboot.Controller;
 
+import com.yalda.WeddingAppSpringboot.model.AddOn;
 import com.yalda.WeddingAppSpringboot.model.WeddingPackage;
 import com.yalda.WeddingAppSpringboot.service.WeddingPackagesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,20 +15,25 @@ public class PackagesController {
     @Autowired
     private  WeddingPackagesService weddingPackagesService;
 
-    @GetMapping("/weddingPackages")
+    @GetMapping("/adminWeddingPackages")
     public String viewWeddingPackagesPage(Model model){
        model.addAttribute("listWeddingPackages", weddingPackagesService.getAllWeddingPackages());
         model.addAttribute("weddingPackage", new WeddingPackage());
-        return "WeddingPackages";
+        return "adminWeddingPackages";
     }
 
-    @PostMapping("/weddingPackages")
-    public String saveWeddingPackage(@ModelAttribute("weddingPackage") WeddingPackage weddingPackage) {
+    @GetMapping("/adminAddOn")
+    public String viewAddOnPage(Model model){
+        model.addAttribute("listAddOns", weddingPackagesService.getAllAddOns());
+        model.addAttribute("addOn", new AddOn());
+        return "adminAddOn";
+    }
+
+    @PostMapping("/adminWeddingPackages")
+    public String saveWeddingPackage(@ModelAttribute("adminWeddingPackage") WeddingPackage weddingPackage) {
         weddingPackagesService.updateWeddingPackage(weddingPackage);
-        return "weddingPackages";
+        return "adminWeddingPackages";
     }
-
-    ///admin
 
     @GetMapping("/")
     public String landingPage(Model model){

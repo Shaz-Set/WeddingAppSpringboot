@@ -16,12 +16,11 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
 
     @Autowired
     private WeddingPackagesRepository weddingPackagesRepository;
-
     @Autowired
     private DrinkPackageRepository drinkPackageRepository;
-
     @Autowired
     private AddOnRepository addOnRepository;
+
     //get
     @Override
     public List<WeddingPackage> getAllWeddingPackages() {
@@ -35,6 +34,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
     public List<AddOn> getAllAddOns() {
         return addOnRepository.findAll();
     }
+
     //update
     @Override
     public int updateWeddingPackage(WeddingPackage weddingPackage) {
@@ -51,6 +51,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         addOnRepository.save(addOn);
         return 1;
     }
+
     //delete
     @Override
     public void deleteWeddingPackage(Long id) {
@@ -64,6 +65,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
     public void deleteAddOn(Long id) {
         addOnRepository.deleteById(id);
     }
+
     //find
     @Override
     public WeddingPackage getWeddingPackageById(long id) {
@@ -71,7 +73,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         WeddingPackage wp = null;
         if (optional.isPresent()) {
             wp = optional.get();
-        } else {
+        }else {
             throw new RuntimeException(" Employee not found for id :: " + id);
         }
         return wp;
@@ -98,12 +100,14 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         }
         return ao;
     }
+
     //total price
     @Override
-    public void calculateTotalPrice(WeddingPackage wp, DrinkPackage dp, AddOn ao, int guests) {
+    public double calculateTotalPrice(WeddingPackage wp, DrinkPackage dp, AddOn ao, int guests) {
             //calculating the total price based on the quantity of the guests,
             // wedding package, add-ons, and drink package chosen by the user
-            double totalPrice = (getWeddingPackageById(wp.getId()).getPrice() * guests) +
-                    (getDrinkPackageById(dp.getId()).getPrice() * guests) + getAddOnById(ao.getId()).getPrice();
+            double totalPrice = (wp.getPrice() * guests) +
+                    (dp.getPrice() * guests) + ao.getPrice();
+            return totalPrice;
     }
 }
