@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add New Wedding Package</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <h1>Add New Wedding Package</h1>
+
+    <form action="#" th:action="@{/saveWeddingPackage}" th:object="${weddingPackage}" method="POST">
+        <input type="name" th:field="*{name}" placeholder="Enter name" class="form-control mb-4 col-4">
+
+        <input type="number" th:field="*{hours}" placeholder="Enter hours" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{styles}" placeholder="Enter styles" class="form-control mb-4 col-4">
+
+        <input type="number" th:field="*{price}" placeholder="Enter price" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Save </button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/adminWeddingPackages}">Back to Wedding Packages list</a>
+</div>
 </body>
+
 </html>

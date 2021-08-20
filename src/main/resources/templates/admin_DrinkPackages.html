@@ -25,7 +25,7 @@
             <td th:text="${drinkPackage.name}"></td>
             <td th:text="${drinkPackage.detail}"></td>
             <td th:text="${drinkPackage.price}"></td>
-            <td> <a th:href="@{/showFormForUpdate/{id}(id=${drinkPackage.id})}" class="btn btn-primary">Update</a>
+            <td> <a th:href="@{/updateDrinkPackage/{id}(id=${drinkPackage.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteDrinkPackage/{id}(id=${drinkPackage.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>

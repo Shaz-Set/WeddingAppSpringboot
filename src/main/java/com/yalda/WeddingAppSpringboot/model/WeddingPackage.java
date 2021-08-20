@@ -1,5 +1,7 @@
 package com.yalda.WeddingAppSpringboot.model;
 
+import net.bytebuddy.implementation.bytecode.assign.TypeCasting;
+
 import javax.persistence.*;
 
 
@@ -10,8 +12,10 @@ public class WeddingPackage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     int hours;
+    String name;
     String styles; //sited down or roving
     double price;
+
 
     public Long getId() {
         return id;
@@ -19,6 +23,14 @@ public class WeddingPackage {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getHours() {

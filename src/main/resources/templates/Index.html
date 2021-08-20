@@ -16,6 +16,9 @@
     <button th:onclick="|window.location.href='/adminDrinkPackages'|">
         Go To Drink Packages
     </button>
+    <button th:onclick="|window.location.href='/userPage'|">
+        Go To User Page
+    </button>
     <form th:action="@{/process}" method="post">
         <input type="number" th:value="${sourceText}" name="sourceText" />
         <input type ="submit" />

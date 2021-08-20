@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding Packages</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<h1>Wedding Packages</h1>
+<div >
+    <div class="container my-2"></div>
+
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Package number</th>
+            <th>Wedding hours</th>
+            <th>Wedding style</th>
+            <th>Package price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="weddingPackage : ${listWeddingPackages}">
+            <td th:text="${weddingPackage.name}"></td>
+            <td th:text="${weddingPackage.hours}"></td>
+            <td th:text="${weddingPackage.styles}"></td>
+            <td th:text="${weddingPackage.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<label for="chooseWPackages">Choose a wedding package:</label>
+<select id="chooseWPackages" name="chooseWPackages" th:each="weddingPackage : ${listWeddingPackages}">
+    <option th:text="${weddingPackage.name}"> </option>
+</select>
+
+<h1>Additional</h1>
+<div >
+    <div class="container my-2"></div>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Add-on name</th>
+            <th>Add-on detail</th>
+            <th>Add-on price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="addOn : ${listAddOns}">
+            <td th:text="${addOn.name}"></td>
+            <td th:text="${addOn.detail}"></td>
+            <td th:text="${addOn.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<label for="chooseAddOn">Choose an add-on:</label>
+<select id="chooseAddOn" name="chooseAddOn" th:each="AddOn : ${listAddOns}">
+    <option th:text="${addOn.name}"> </option>
+</select>
+<h1>Drink Packages</h1>
+<div >
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Package name</th>
+            <th>Package detail</th>
+            <th>Package price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="drinkPackage : ${listDrinkPackages}">
+            <td th:text="${drinkPackage.name}"></td>
+            <td th:text="${drinkPackage.detail}"></td>
+            <td th:text="${drinkPackage.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<label for="chooseDPackages">Choose a drink package:</label>
+<select id="chooseDPackages" name="chooseDPackages" th:each="drinkPackage : ${listDrinkPackages}">
+    <option th:text="${drinkPackage.name}"> </option>
+</select>
+<
+</body>
+</html>
