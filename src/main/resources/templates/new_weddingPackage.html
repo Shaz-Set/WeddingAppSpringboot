@@ -13,13 +13,21 @@
     <h1>Add New Wedding Package</h1>
 
     <form action="#" th:action="@{/saveWeddingPackage}" th:object="${weddingPackage}" method="POST">
-        <input type="name" th:field="*{name}" placeholder="Enter name" class="form-control mb-4 col-4">
+        <label>Package Name:
+            <input type="text" th:field="*{name}" required placeholder="Enter name" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="number" th:field="*{hours}" placeholder="Enter hours" class="form-control mb-4 col-4">
+        <label>Package Hour:
+            <input type="number" th:field="*{hours}" required min="0" placeholder="Enter hours" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="text" th:field="*{styles}" placeholder="Enter styles" class="form-control mb-4 col-4">
+        <label>Package Style:
+            <input type="text" th:field="*{styles}" required placeholder="Enter styles" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="number" th:field="*{price}" placeholder="Enter price" class="form-control mb-4 col-4">
+        <label>Package Price:
+            <input type="number" th:field="*{price}" required min="0" placeholder="Enter price" class="form-control mb-4 col-4">
+        </label>
 
         <button type="submit" class="btn btn-info col-2"> Save </button>
     </form>

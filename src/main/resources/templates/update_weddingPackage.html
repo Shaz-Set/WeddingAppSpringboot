@@ -17,13 +17,21 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
 
-        <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+        <label>Package Name:
+            <input type="text" th:field="*{name}" required class="form-control mb-4 col-4">
+        </label>
 
-        <input type="text" th:field="*{hours}" class="form-control mb-4 col-4">
+        <label>Package Hour:
+            <input type="number" th:field="*{hours}" min="0" required class="form-control mb-4 col-4">
+        </label>
 
-        <input type="text" th:field="*{styles}" class="form-control mb-4 col-4">
+        <label>Package Style:
+            <input type="text" th:field="*{styles}" required class="form-control mb-4 col-4">
+        </label>
 
-        <input type="text" th:field="*{price}" class="form-control mb-4 col-4">
+        <label>Package Price:
+            <input type="number" th:field="*{price}" min="0"  required class="form-control mb-4 col-4">
+        </label>
 
         <button type="submit" class="btn btn-info col-2"> Update </button>
     </form>

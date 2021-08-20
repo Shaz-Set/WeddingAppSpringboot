@@ -13,11 +13,17 @@
     <h1>Add New Drink Package</h1>
 
     <form action="#" th:action="@{/saveDrinkPackage}" th:object="${drinkPackage}" method="POST">
-        <input type="text" th:field="*{name}" placeholder="Enter name" class="form-control mb-4 col-4">
+        <label>Package Name:
+            <input type="text" th:field="*{name}" required placeholder="Enter name" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="text" th:field="*{detail}" placeholder="Enter detail" class="form-control mb-4 col-4">
+        <label>Package Detail:
+            <input type="text" th:field="*{detail}" required placeholder="Enter detail" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="number" th:field="*{price}" placeholder="Enter price" class="form-control mb-4 col-4">
+        <label>Package Price:
+            <input type="number" th:field="*{price}" required min="0" placeholder="Enter price" class="form-control mb-4 col-4">
+        </label>
 
         <button type="submit" class="btn btn-info col-2"> Save </button>
     </form>

@@ -36,9 +36,11 @@ public class PackagesController {
         return "new_weddingPackage";
     }
     @PostMapping("/saveWeddingPackage")
-    public String saveWeddingPackage(@ModelAttribute("weddingPackage") WeddingPackage weddingPackage) {
+    public String saveWeddingPackage(@ModelAttribute("weddingPackage") WeddingPackage weddingPackage,Model model) {
         weddingPackagesService.updateWeddingPackage(weddingPackage);
-        return "redirect:/";
+        model.addAttribute("listWeddingPackages", weddingPackagesService.getAllWeddingPackages());
+        model.addAttribute("weddingPackage", new WeddingPackage());
+        return "admin_WeddingPackages";
     }
     @GetMapping("/updateWeddingPackage/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -47,9 +49,11 @@ public class PackagesController {
         return "update_weddingPackage";
     }
     @GetMapping("/deleteWeddingPackage/{id}")
-    public String deleteWeddingPackage(@PathVariable(value = "id") long id) {
+    public String deleteWeddingPackage(@PathVariable(value = "id") long id,Model model) {
         this.weddingPackagesService.deleteWeddingPackage(id);
-        return "redirect:/";
+        model.addAttribute("listWeddingPackages", weddingPackagesService.getAllWeddingPackages());
+        model.addAttribute("weddingPackage", new WeddingPackage());
+        return "admin_WeddingPackages";
     }
 
 
@@ -67,9 +71,11 @@ public class PackagesController {
         return "new_addOn";
     }
     @PostMapping("/saveAddOn")
-    public String saveAddOn(@ModelAttribute("addOn") AddOn addOn) {
+    public String saveAddOn(@ModelAttribute("addOn") AddOn addOn,Model model) {
         weddingPackagesService.updateAddOn(addOn);
-        return "redirect:/";
+        model.addAttribute("listAddOns", weddingPackagesService.getAllAddOns());
+        model.addAttribute("addOn", new AddOn());
+        return "admin_AddOns";
     }
     @GetMapping("/updateAddOn/{id}")
     public String showFormForAddOnUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -78,9 +84,11 @@ public class PackagesController {
         return "update_addOn";
     }
     @GetMapping("/deleteAddOn/{id}")
-    public String deleteAddOn(@PathVariable(value = "id") long id) {
+    public String deleteAddOn(@PathVariable(value = "id") long id,Model model) {
         this.weddingPackagesService.deleteAddOn(id);
-        return "redirect:/";
+        model.addAttribute("listAddOns", weddingPackagesService.getAllAddOns());
+        model.addAttribute("addOn", new AddOn());
+        return "admin_AddOns";
     }
 
 
@@ -98,9 +106,11 @@ public class PackagesController {
         return "new_drinkPackage";
     }
     @PostMapping("/saveDrinkPackage")
-    public String saveDrinkPackage(@ModelAttribute("drinkPackage") DrinkPackage drinkPackage) {
+    public String saveDrinkPackage(@ModelAttribute("drinkPackage") DrinkPackage drinkPackage,Model model) {
         weddingPackagesService.updateDrinkPackage(drinkPackage);
-        return "redirect:/";
+        model.addAttribute("listDrinkPackages", weddingPackagesService.getAllDrinkPackages());
+        model.addAttribute("drinkPackage", new DrinkPackage());
+        return "admin_DrinkPackages";
     }
     @GetMapping("/updateDrinkPackage/{id}")
     public String showFormForDrinkPackageUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -109,9 +119,11 @@ public class PackagesController {
         return "update_drinkPackage";
     }
     @GetMapping("/deleteDrinkPackage/{id}")
-    public String deleteDrinkPackage(@PathVariable(value = "id") long id) {
+    public String deleteDrinkPackage(@PathVariable(value = "id") long id,Model model) {
         this.weddingPackagesService.deleteDrinkPackage(id);
-        return "redirect:/";
+        model.addAttribute("listDrinkPackages", weddingPackagesService.getAllDrinkPackages());
+        model.addAttribute("drinkPackage", new DrinkPackage());
+        return "admin_DrinkPackages";
     }
 
     @GetMapping("/userPage")
@@ -130,10 +142,10 @@ public class PackagesController {
 
 
 
-    @RequestMapping("/process")
-    public String process(Model model, @RequestParam String sourceText){
-        int val = Integer.parseInt(sourceText);
-        System.out.println("model = " + model + ", sourceText = " + Integer.parseInt(sourceText));
+    @RequestMapping("/process/{id}")
+    public String process(Model model, @RequestParam String guestNumber){
+        int val = Integer.parseInt(guestNumber);
+        //weddingPackagesService.calculateTotalPrice(val)
         return "result";
     }
 }

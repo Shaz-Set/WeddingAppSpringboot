@@ -75,7 +75,7 @@ class WeddingPackagesServiceImplTest {
         newPackage.setPrice(160.0);
         weddingPackagesService.updateWeddingPackage(newPackage);
 
-        weddingPackagesService.deleteWeddingPackage(newPackage.getId());
+        //assertNull(weddingPackagesService.deleteWeddingPackage(newPackage.getId()));
         //assertEquals(" Employee not found for id :: 15",weddingPackagesService.getWeddingPackageById(15L));
     }
 
@@ -91,12 +91,15 @@ class WeddingPackagesServiceImplTest {
 
     @Test
     void getWeddingPackageById() {
-        WeddingPackage newPackage = new WeddingPackage();
+    /* WeddingPackage newPackage = new WeddingPackage();
         newPackage.setId(15L);
         newPackage.setHours(8);
         newPackage.setStyles("Roving");
-        newPackage.setPrice(160.0);
-        assertEquals(newPackage,weddingPackagesService.getWeddingPackageById(newPackage.getId()));
+        newPackage.setPrice(160.0);*/
+        WeddingPackage weddingPackage = weddingPackagesService.getWeddingPackageById(1L);
+        assertNotNull(weddingPackage);
+        WeddingPackage weddingPackageNotInDB = weddingPackagesService.getWeddingPackageById(99999L);
+        assertNull(weddingPackageNotInDB);
     }
 
     @Test
@@ -130,6 +133,5 @@ class WeddingPackagesServiceImplTest {
 
         double totalPrice = weddingPackagesService.calculateTotalPrice(newWeddingPackage,newDrinkPackage,newAddon,100);
         assertEquals(21500,totalPrice);
-
     }
 }

@@ -74,7 +74,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         if (optional.isPresent()) {
             wp = optional.get();
         }else {
-            throw new RuntimeException(" Employee not found for id :: " + id);
+            throw new RuntimeException(" Wedding Package not found for id :: " + id);
         }
         return wp;
     }
@@ -85,7 +85,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         if (optional.isPresent()) {
             dp = optional.get();
         } else {
-            throw new RuntimeException(" Employee not found for id :: " + id);
+            throw new RuntimeException(" Drink Package not found for id :: " + id);
         }
         return dp;
     }
@@ -96,7 +96,7 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         if (optional.isPresent()) {
             ao = optional.get();
         } else {
-            throw new RuntimeException(" Employee not found for id :: " + id);
+            throw new RuntimeException(" Add on not found for id :: " + id);
         }
         return ao;
     }

@@ -16,11 +16,17 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
 
-        <input type="text" th:field="*{name}" placeholder="Enter name" class="form-control mb-4 col-4">
+        <label>Add-on Name:
+            <input type="text" th:field="*{name}" required placeholder="Enter name" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="text" th:field="*{detail}" placeholder="Enter detail" class="form-control mb-4 col-4">
+        <label>Add-on Detail:
+            <input type="text" th:field="*{detail}" required placeholder="Enter detail" class="form-control mb-4 col-4">
+        </label>
 
-        <input type="number" th:field="*{price}" placeholder="Enter price" class="form-control mb-4 col-4">
+        <label>Add-on Price:
+            <input type="number" th:field="*{price}" required min="0" placeholder="Enter price" class="form-control mb-4 col-4">
+        </label>
 
         <button type="submit" class="btn btn-info col-2"> Update </button>
     </form>
