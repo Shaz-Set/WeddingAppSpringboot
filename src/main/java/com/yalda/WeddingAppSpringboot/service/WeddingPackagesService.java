@@ -13,8 +13,8 @@ public interface WeddingPackagesService {
      List<AddOn> getAllAddOns();
      //update
      Long updateWeddingPackage(WeddingPackage weddingPackage);
-     int updateDrinkPackage(DrinkPackage drinkPackage);
-     int updateAddOn(AddOn addOn);
+     Long updateDrinkPackage(DrinkPackage drinkPackage);
+     Long updateAddOn(AddOn addOn);
      //delete
      void deleteWeddingPackage(Long id);
      void deleteDrinkPackage(Long id);

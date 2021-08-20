@@ -42,14 +42,14 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
         return weddingPackage.getId();
     }
     @Override
-    public int updateDrinkPackage(DrinkPackage drinkPackage) {
+    public Long updateDrinkPackage(DrinkPackage drinkPackage) {
         drinkPackageRepository.save(drinkPackage);
-        return 1;
+        return drinkPackage.getId();
     }
     @Override
-    public int updateAddOn(AddOn addOn) {
+    public Long updateAddOn(AddOn addOn) {
         addOnRepository.save(addOn);
-        return 1;
+        return addOn.getId();
     }
 
     //delete
@@ -75,24 +75,12 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
     @Override
     public DrinkPackage getDrinkPackageById(long id) {
         Optional< DrinkPackage > optional = drinkPackageRepository.findById(id);
-        DrinkPackage dp = null;
-        if (optional.isPresent()) {
-            dp = optional.get();
-        } else {
-            throw new RuntimeException(" Drink Package not found for id :: " + id);
-        }
-        return dp;
+        return optional.orElse(null);
     }
     @Override
     public AddOn getAddOnById(long id) {
         Optional< AddOn > optional = addOnRepository.findById(id);
-        AddOn ao = null;
-        if (optional.isPresent()) {
-            ao = optional.get();
-        } else {
-            throw new RuntimeException(" Add on not found for id :: " + id);
-        }
-        return ao;
+        return optional.orElse(null);
     }
 
     //total price
