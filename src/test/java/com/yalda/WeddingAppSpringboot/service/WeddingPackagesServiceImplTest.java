@@ -22,7 +22,7 @@ class WeddingPackagesServiceImplTest {
         List<WeddingPackage> wPackages = weddingPackagesService.getAllWeddingPackages();
         assertNotEquals(0, wPackages.size());
     }
-    
+
     @Test
     void getAllDrinkPackages() {
         List<DrinkPackage> dPackages = weddingPackagesService.getAllDrinkPackages();
@@ -145,7 +145,8 @@ class WeddingPackagesServiceImplTest {
         newAddon.setDetail("Photo Booth will be placed in the venue");
         newAddon.setPrice(500);
 
-        double totalPrice = weddingPackagesService.calculateTotalPrice(newWeddingPackage,newDrinkPackage,newAddon,100);
+        double totalPrice = weddingPackagesService.calculateTotalPrice(newWeddingPackage.getPrice()
+                ,newDrinkPackage.getPrice(),newAddon.getPrice(),100);
         assertEquals(21500,totalPrice);
     }
 }

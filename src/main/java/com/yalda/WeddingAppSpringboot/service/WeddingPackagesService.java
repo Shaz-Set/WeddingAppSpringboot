@@ -24,5 +24,5 @@ public interface WeddingPackagesService {
      DrinkPackage getDrinkPackageById(long id);
      AddOn getAddOnById(long id);
 
-     double calculateTotalPrice(WeddingPackage wp, DrinkPackage dp, AddOn ao, int guests);
+     double calculateTotalPrice(double wpPrice, double dpPrice, double aoPrice, int guests);
 }

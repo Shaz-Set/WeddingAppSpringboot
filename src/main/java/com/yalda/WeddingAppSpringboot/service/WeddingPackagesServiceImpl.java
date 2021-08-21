@@ -85,11 +85,11 @@ public class WeddingPackagesServiceImpl implements WeddingPackagesService {
 
     //total price
     @Override
-    public double calculateTotalPrice(WeddingPackage wp, DrinkPackage dp, AddOn ao, int guests) {
+    public double calculateTotalPrice(double wpPrice, double dpPrice, double aoPrice, int guests) {
             //calculating the total price based on the quantity of the guests,
             // wedding package, add-ons, and drink package chosen by the user
-            double totalPrice = (wp.getPrice() * guests) +
-                    (dp.getPrice() * guests) + ao.getPrice();
+            double totalPrice = (wpPrice * guests) +
+                    (dpPrice * guests) + aoPrice;
             return totalPrice;
     }
 }

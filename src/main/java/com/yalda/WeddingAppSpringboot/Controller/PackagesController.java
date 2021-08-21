@@ -144,12 +144,12 @@ public class PackagesController {
 
     @RequestMapping("/process")
     public String process(Model model, @RequestParam int guestNumber,
-                          @RequestParam String chooseWPackages,
-                          @RequestParam String chooseAddOn,
-                          @RequestParam String chooseDPackages){
+                          @RequestParam double chooseWPackages,
+                          @RequestParam double chooseAddOn,
+                          @RequestParam double chooseDPackages){
         System.out.println("model = " + model + ", guestNumber = " + guestNumber + ", chooseWPackages = " + chooseWPackages + ", chooseAddOn = " + chooseAddOn + ", chooseDPackages = " + chooseDPackages);
-        //weddingPackagesService.calculateTotalPrice(chooseWPackages,chooseAddOn,chooseAddOn,guestNumber);
-        model.addAttribute("totalPrice", 10000);
+        double totalPrice = weddingPackagesService.calculateTotalPrice(chooseWPackages,chooseAddOn,chooseAddOn,guestNumber);
+        model.addAttribute("totalPrice", totalPrice);
         return "result";
     }
 }

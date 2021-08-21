@@ -7,10 +7,10 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
+<div class="container my-2">
 <h1>Wedding Packages</h1>
 <form th:action="@{/process}" method="post">
 <div >
-    <div class="container my-2"></div>
 
     <table border="1" class="table table-striped table-responsive-md">
         <thead>
@@ -38,7 +38,6 @@
 
 <h1>Additional</h1>
 <div >
-    <div class="container my-2"></div>
     <table border="1" class="table table-striped table-responsive-md">
         <thead>
         <tr>
@@ -83,12 +82,14 @@
 <select id="chooseDPackages" name="chooseDPackages" >
     <option th:each="drinkPackage : ${listDrinkPackages}" th:value="${drinkPackage.price}" th:text="${drinkPackage.name}"> </option>
 </select>
-
+<div>
     <label>
         <input type="number" th:value="${guestNumber}" name="guestNumber" />
     </label>
+</div>
     <input type ="submit" />
 </form>
-<a th:href="@{/}"> Back to Home</a>
+<a th:href="@{/}">Back to Home</a>
+</div>
 </body>
 </html>
