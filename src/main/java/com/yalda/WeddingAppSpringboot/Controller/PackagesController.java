@@ -141,8 +141,8 @@ public class PackagesController {
     }
 
 
-
-    @RequestMapping("/process")
+    //Total cost controller
+    @RequestMapping("/result")
     public String process(Model model, @RequestParam int guestNumber,
                           @RequestParam double chooseWPackages,
                           @RequestParam double chooseAddOn,

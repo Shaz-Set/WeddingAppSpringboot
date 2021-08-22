@@ -2,128 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wedding Packages</title>
+    <title>Home page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Special+Elite&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            font-family: 'Special Elite', cursive;
+            font-weight: bold;
+            color: rgba(32, 61, 64, 0.81);
+        }
+
+        .rowContent {
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-<header class="sticky-top ">
-    <div class="row flex-nowrap justify-content-between align-items-center bg-secondary">
-        <div class="col-4 pt-1">
-            <button type="button" class="btn btn-sm btn-outline-primary"
-                    th:onclick="|window.location.href='/'|">Home
-            </button>
-        </div>
-        <div class="col-4 text-center">
-            <h1 class="text-white" href="#">Thank You!</h1>
-        </div>
-        <div class="col-4 d-flex justify-content-end align-items-center">
-            <a class="btn btn-sm btn-outline-light" href="#">Log In</a>
-        </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mx-auto">
-                <a th:href="@{/adminWeddingPackages}" class="p-2 text-muted" href="#">Wedding Packages</a>
-                <a th:href="@{/adminAddOns}" class="p-2 text-muted" href="#">Add-Ons</a>
-                <a th:href="@{/adminDrinkPackages}" class="p-2 text-muted" href="#">Drink Packages</a>
-                <a th:href="@{/userPage}" class="p-2 text-muted" href="#">User Page</a>
+<div class="container my-2">
+    <header class="sticky-top">
+        <div class="row flex-nowrap justify-content-between align-items-center bg-secondary">
+            <div class="col-4 pt-1">
+                <button type="button" class="btn btn-sm btn-outline-primary"
+                        th:onclick="|window.location.href='/adminWeddingPackages'|">Admin
+                </button>
+            </div>
+            <div class="col-4 text-center justify-content-center align-items-center">
+                <h1 class="text-white " href="#">Our Packages</h1>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a style="font-weight:bold;" class="btn btn-sm btn-outline-light" href="#">Log In</a>
             </div>
         </div>
-    </nav>
-</header>
-<div class="container my-2">
-    <div class="title_outer title_without_animation" data-height="600">
-        <div class="title title_size_large  position_center  has_fixed_background "
-             style="background-size:100%; background-image: url(&quot;http://zest.net.au/wp-content/uploads/Hero-Dining-Spit_cropped.jpg&quot;);
-             height: 400px; background-color: rgb(242, 233, 227); background-position: center 0px;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mx-auto">
+                    <a th:href="@{/}" class="p-2 text-muted" href="#">Home</a>
+                    <a th:href="@{/userPage}" class="p-2 text-muted" href="#">Our Packages</a>
+                    <a  class="p-2 text-muted" href="#">About Us</a>
+                    <a  class="p-2 text-muted" href="#">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <form th:action="@{/result}" method="post">
+        <div class="row rowContent">
+            <h1>Wedding Packages</h1>
         </div>
-    </div>
-<h1>Wedding Packages</h1>
-<form th:action="@{/process}" method="post">
-<div >
-
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>Package number</th>
-            <th>Wedding hours</th>
-            <th>Wedding style</th>
-            <th>Package price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="weddingPackage : ${listWeddingPackages}">
-            <td th:text="${weddingPackage.name}"></td>
-            <td th:text="${weddingPackage.hours}"></td>
-            <td th:text="${weddingPackage.styles}"></td>
-            <td th:text="${weddingPackage.price}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<label for="chooseWPackages">Choose a wedding package:</label>
-<select id="chooseWPackages" name="chooseWPackages" >
-    <option th:each="weddingPackage : ${listWeddingPackages}" th:value="${weddingPackage.price}" th:text="${weddingPackage.name}"> </option>
-</select>
-
-<h1>Additional</h1>
-<div >
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>Add-on name</th>
-            <th>Add-on detail</th>
-            <th>Add-on price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="addOn : ${listAddOns}">
-            <td th:text="${addOn.name}"></td>
-            <td th:text="${addOn.detail}"></td>
-            <td th:text="${addOn.price}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<label for="chooseAddOn">Choose an add-on:</label>
-<select id="chooseAddOn" name="chooseAddOn">
-    <option  th:each="addOn : ${listAddOns}" th:value="${addOn.price}" th:text="${addOn.name}"> </option>
-</select>
-<h1>Drink Packages</h1>
-<div >
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>Package name</th>
-            <th>Package detail</th>
-            <th>Package price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="drinkPackage : ${listDrinkPackages}">
-            <td th:text="${drinkPackage.name}"></td>
-            <td th:text="${drinkPackage.detail}"></td>
-            <td th:text="${drinkPackage.price}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<label for="chooseDPackages">Choose a drink package:</label>
-<select id="chooseDPackages" name="chooseDPackages" >
-    <option th:each="drinkPackage : ${listDrinkPackages}" th:value="${drinkPackage.price}" th:text="${drinkPackage.name}"> </option>
-</select>
-<div>
-        <input type="number" th:value="${guestNumber}" name="guestNumber" />
-</div>
-    <input type ="submit" />
-</form>
-<a th:href="@{/}">Back to Home</a>
+        <div class="row rowContent">
+            <div class="col-7">
+                <table border="1" class="table table-striped table-responsive-md">
+                    <thead class="table-primary">
+                    <tr>
+                        <th>Package number</th>
+                        <th>Wedding hours</th>
+                        <th>Wedding style</th>
+                        <th>Package price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="weddingPackage : ${listWeddingPackages}">
+                        <td th:text="${weddingPackage.name}"></td>
+                        <td th:text="${weddingPackage.hours}"></td>
+                        <td th:text="${weddingPackage.styles}"></td>
+                        <td th:text="${weddingPackage.price}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-5">
+                <div class="vc_single_image-wrapper vc_box_border  vc_box_border_grey">
+                    <img src="https://media-api.xogrp.com/images/68ac1fb3-8f22-4863-9c1c-0c92f0331ec3~rs_768.h"
+                         alt="Wedding Reception Timeline Traditions &amp;amp; Etiquette"
+                         style="width: 400px; height: 340px;">
+                </div>
+            </div>
+        </div>
+        <div class="row rowContent">
+            <label for="chooseWPackages" style="margin: 5px">Choose a wedding package: </label>
+            <select id="chooseWPackages" name="chooseWPackages">
+                <option th:each="weddingPackage : ${listWeddingPackages}" th:value="${weddingPackage.price}"
+                        th:text="${weddingPackage.name}"></option>
+            </select>
+        </div>
+        <hr/>
+        <div class="row rowContent">
+            <h1>Add-On</h1>
+        </div>
+        <div class="row rowContent">
+            <div class="col-5">
+                <div class="vc_single_image-wrapper vc_box_border  vc_box_border_grey">
+                    <img class="vc_single_image-img "
+                         src="http://zest.net.au/wp-content/uploads/CarlyandBen-598-scaled-400x400.jpg" width="400"
+                         height="410" alt="CarlyandBen-598" title="CarlyandBen-598">
+                </div>
+            </div>
+            <div class="col-7">
+                <table border="1" class="table table-striped table-responsive-md">
+                    <thead class="table-primary">
+                    <tr>
+                        <th>Add-on name</th>
+                        <th>Add-on detail</th>
+                        <th>Add-on price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="addOn : ${listAddOns}">
+                        <td th:text="${addOn.name}"></td>
+                        <td th:text="${addOn.detail}"></td>
+                        <td th:text="${addOn.price}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row rowContent">
+            <label for="chooseAddOn" style="margin: 5px">Choose an add-on: </label>
+            <select id="chooseAddOn" name="chooseAddOn">
+                <option th:each="addOn : ${listAddOns}" th:value="${addOn.price}" th:text="${addOn.name}"></option>
+            </select>
+        </div>
+        <hr/>
+        <div class=" row rowContent">
+            <h1>Drink Packages</h1>
+        </div>
+        <div class=" row rowContent">
+            <div class="col-7">
+                <table border="1" class="table table-striped table-responsive-md ">
+                    <thead class="table-primary">
+                    <tr>
+                        <th>Package name</th>
+                        <th>Package detail</th>
+                        <th>Package price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="drinkPackage : ${listDrinkPackages}">
+                        <td th:text="${drinkPackage.name}"></td>
+                        <td th:text="${drinkPackage.detail}"></td>
+                        <td th:text="${drinkPackage.price}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-5">
+                <img typeof="foaf:Image" class="img-responsive"
+                     data-src="https://cdnexpatwomanfood.expatwoman.com/s3fs-public/wedding day drinks main.png"
+                     src="https://cdnexpatwomanfood.expatwoman.com/s3fs-public/wedding day drinks main.png" width="400"
+                     height="290" alt="Non-Alcoholic Wedding Drink Ideas for Your Special Day"
+                     title="Non-Alcoholic Wedding Drink Ideas for Your Special Day">
+            </div>
+        </div>
+        <div class="row rowContent">
+            <label for="chooseDPackages" style="margin: 5px">Choose a drink package: </label>
+            <select id="chooseDPackages" name="chooseDPackages">
+                <option th:each="drinkPackage : ${listDrinkPackages}" th:value="${drinkPackage.price}"
+                        th:text="${drinkPackage.name}"></option>
+            </select>
+        </div>
+        <hr/>
+        <div class="row rowContent">
+            <label style="margin: 5px"> Number of guests:  <span style="color: red;margin-bottom: 2px;">*</span></label>
+            <input type="number" required min="0" placeholder="Enter the number" th:value="${guestNumber}"
+                   name="guestNumber"/>
+        </div>
+        <hr>
+        <div class="row rowContent">
+            <input type="submit"/>
+        </div>
+    </form>
 </div>
 </body>
 </html>

@@ -23,7 +23,8 @@
         <div class="row flex-nowrap justify-content-between align-items-center bg-dark">
             <div class="col-4 pt-1">
                 <button type="button" class="btn btn-sm btn-outline-primary"
-                        th:onclick="|window.location.href='/'|" >Home</button>
+                        th:onclick="|window.location.href='/'|">Home
+                </button>
             </div>
             <div class="col-4 text-center">
                 <h1 class="text-white" href="#">Add New Add-on</h1>
@@ -49,10 +50,10 @@
         </nav>
     </header>
     <div class="row">
-        <div class="col" >
+        <div class="col">
             <form action="#" th:action="@{/saveAddOn}" th:object="${addOn}" method="POST">
                 Add-on Name:<input type="text" th:field="*{name}" required placeholder="Enter name"
-                                   class="form-control mb-4 col-5" >
+                                   class="form-control mb-4 col-5">
 
                 Add-on Detail: <input type="text" th:field="*{detail}" required placeholder="Enter detail"
                                       class="form-control mb-4 col-5">
