@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -11,7 +11,8 @@
 <header class="sticky-top">
     <div class="row flex-nowrap justify-content-between align-items-center bg-dark">
         <div class="col-4 pt-1">
-            <button type="button" class="btn btn-sm btn-outline-primary">Subscribe</button>
+            <button type="button" class="btn btn-sm btn-outline-primary"
+                    th:onclick="|window.location.href='/adminWeddingPackages'|" >Admin</button>
         </div>
         <div class="col-4 text-center">
             <h1 class="text-white" href="#">Welcome</h1>
@@ -35,6 +36,12 @@
         </div>
     </nav>
 </header>
+    <div class="title_outer title_without_animation" data-height="600">
+        <div class="title title_size_large  position_center  has_fixed_background "
+             style="background-size:100%; background-image: url(&quot;http://zest.net.au/wp-content/uploads/Hero-Dining-Spit_cropped.jpg&quot;);
+             height: 400px; background-color: rgb(242, 233, 227); background-position: center 0px;">
+        </div>
+    </div>
 </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

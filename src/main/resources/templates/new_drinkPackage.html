@@ -6,6 +6,16 @@
     <title>Add New Drink Package</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Patrick+Hand&family=Poppins:wght@300&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Concert One', cursive;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,7 +23,8 @@
     <header class="sticky-top">
         <div class="row flex-nowrap justify-content-between align-items-center bg-dark">
             <div class="col-4 pt-1">
-                <button type="button" class="btn btn-sm btn-outline-primary">Subscribe</button>
+                <button type="button" class="btn btn-sm btn-outline-primary"
+                        th:onclick="|window.location.href='/'|" >Home</button>
             </div>
             <div class="col-4 text-center">
                 <h1 class="text-white" href="#">Add New Package</h1>

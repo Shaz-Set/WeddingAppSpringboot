@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -6,6 +6,16 @@
     <title>Update Drink Package</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Patrick+Hand&family=Poppins:wght@300&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Concert One', cursive;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,17 +23,18 @@
     <header class="sticky-top">
         <div class="row flex-nowrap justify-content-between align-items-center bg-dark">
             <div class="col-4 pt-1">
-                <button type="button" class="btn btn-sm btn-outline-primary">Subscribe</button>
+                <button type="button" class="btn btn-sm btn-outline-primary">Home</button>
             </div>
             <div class="col-4 text-center">
-                <h1 class="text-white" href="#">Update Drink Package</h1>
+                <h1 class="text-white" href="#">Update Package</h1>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <a class="btn btn-sm btn-outline-light" href="#">Log In</a>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -37,33 +48,39 @@
             </div>
         </nav>
     </header>
+    <div class="row">
+        <div class="col">
+            <form action="#" th:action="@{/saveDrinkPackage}" th:object="${drinkPackage}" method="POST">
+                <!-- Add hidden form field to handle update -->
+                <input type="hidden" th:field="*{id}"/>
 
-    <form action="#" th:action="@{/saveDrinkPackage}" th:object="${drinkPackage}" method="POST">
-        <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="*{id}" />
+                Package Name: <input type="text" th:field="*{name}" required placeholder="Enter name"
+                                     class="form-control mb-4 col-4">
 
-        <label>Package Name:
-            <input type="text" th:field="*{name}" required placeholder="Enter name" class="form-control mb-4 col-4">
-        </label>
+                Package Detail: <input type="text" th:field="*{detail}" required placeholder="Enter detail"
+                                       class="form-control mb-4 col-4">
 
-        <label>Package Detail:
-            <input type="text" th:field="*{detail}" required placeholder="Enter detail" class="form-control mb-4 col-4">
-        </label>
 
-        <label>Package Price:
-            <input type="number" th:field="*{price}" required min="0" placeholder="Enter price" class="form-control mb-4 col-4">
-        </label>
+                Package Price: <input type="number" th:field="*{price}" required min="0" placeholder="Enter price"
+                                      class="form-control mb-4 col-4">
 
-        <button type="submit" class="btn btn-info col-2"> Update </button>
-    </form>
-
+                <button type="submit" class="btn btn-info col-2"> Update</button>
+            </form>
+        </div>
+    </div>
     <hr>
 
     <a th:href="@{/adminDrinkPackages}">Back to Drink Packages list</a>
 </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>
