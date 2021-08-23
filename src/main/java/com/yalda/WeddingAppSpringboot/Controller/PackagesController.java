@@ -18,7 +18,7 @@ public class PackagesController {
 
     @GetMapping("/")
     public String landingPage(Model model){
-        return "Index";
+        return "index";
     }
 
 
@@ -27,7 +27,7 @@ public class PackagesController {
     public String viewWeddingPackagesPage(Model model){
        model.addAttribute("listWeddingPackages", weddingPackagesService.getAllWeddingPackages());
         model.addAttribute("weddingPackage", new WeddingPackage());
-        return "admin_WeddingPackages";
+        return "admin_weddingPackages";
     }
     @GetMapping("/newWeddingPackageForm")
     public String showNewWeddingPackageForm(Model model) {
@@ -40,7 +40,7 @@ public class PackagesController {
         weddingPackagesService.updateWeddingPackage(weddingPackage);
         model.addAttribute("listWeddingPackages", weddingPackagesService.getAllWeddingPackages());
         model.addAttribute("weddingPackage", new WeddingPackage());
-        return "admin_WeddingPackages";
+        return "admin_weddingPackages";
     }
     @GetMapping("/updateWeddingPackage/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -53,7 +53,7 @@ public class PackagesController {
         this.weddingPackagesService.deleteWeddingPackage(id);
         model.addAttribute("listWeddingPackages", weddingPackagesService.getAllWeddingPackages());
         model.addAttribute("weddingPackage", new WeddingPackage());
-        return "admin_WeddingPackages";
+        return "admin_weddingPackages";
     }
 
 
@@ -62,7 +62,7 @@ public class PackagesController {
     public String viewAddOnPage(Model model){
         model.addAttribute("listAddOns", weddingPackagesService.getAllAddOns());
         model.addAttribute("addOn", new AddOn());
-        return "admin_AddOns";
+        return "admin_addOns";
     }
     @GetMapping("/newAddOnForm")
     public String showAddOnForm(Model model) {
@@ -75,7 +75,7 @@ public class PackagesController {
         weddingPackagesService.updateAddOn(addOn);
         model.addAttribute("listAddOns", weddingPackagesService.getAllAddOns());
         model.addAttribute("addOn", new AddOn());
-        return "admin_AddOns";
+        return "admin_addOns";
     }
     @GetMapping("/updateAddOn/{id}")
     public String showFormForAddOnUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -88,7 +88,7 @@ public class PackagesController {
         this.weddingPackagesService.deleteAddOn(id);
         model.addAttribute("listAddOns", weddingPackagesService.getAllAddOns());
         model.addAttribute("addOn", new AddOn());
-        return "admin_AddOns";
+        return "admin_addOns";
     }
 
 
@@ -97,7 +97,7 @@ public class PackagesController {
     public String viewDrinkPackagesPage(Model model){
         model.addAttribute("listDrinkPackages", weddingPackagesService.getAllDrinkPackages());
         model.addAttribute("drinkPackage", new DrinkPackage());
-        return "admin_DrinkPackages";
+        return "admin_drinkPackages";
     }
     @GetMapping("/newDrinkPackageForm")
     public String showDrinkPackageForm(Model model) {
@@ -110,7 +110,7 @@ public class PackagesController {
         weddingPackagesService.updateDrinkPackage(drinkPackage);
         model.addAttribute("listDrinkPackages", weddingPackagesService.getAllDrinkPackages());
         model.addAttribute("drinkPackage", new DrinkPackage());
-        return "admin_DrinkPackages";
+        return "admin_drinkPackages";
     }
     @GetMapping("/updateDrinkPackage/{id}")
     public String showFormForDrinkPackageUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -123,7 +123,7 @@ public class PackagesController {
         this.weddingPackagesService.deleteDrinkPackage(id);
         model.addAttribute("listDrinkPackages", weddingPackagesService.getAllDrinkPackages());
         model.addAttribute("drinkPackage", new DrinkPackage());
-        return "admin_DrinkPackages";
+        return "admin_drinkPackages";
     }
 
     @GetMapping("/userPage")
